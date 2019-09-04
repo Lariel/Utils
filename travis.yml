@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "12.3.0"
+  - "8.13.0"
 
 branches:
 only:
