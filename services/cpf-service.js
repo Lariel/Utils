@@ -6,14 +6,14 @@ calculaDV = (numbersparam) => {
         sum += numbers.charAt(10 - i) * i;
     }
     firstdv = sum % 11 < 2 ? 0 : 11 - (sum % 11);
-    console.log('calculaDV Primeiro DV: ', firstdv)
+    console.log('Primeiro DV: ', firstdv)
     numbers = numbersparam+firstdv;
     sum = 0;
     for (i = 11; i > 1; i--) {
         sum += numbers.charAt(11 - i) * i;
     }
     secdv = sum % 11 < 2 ? 0 : 11 - (sum % 11);
-    console.log('calculaDV Segundo DV: ', secdv)
+    console.log('Segundo DV: ', secdv)
     return firstdv+''+secdv
 }
 
@@ -24,7 +24,7 @@ generateSeed = () => {
     newSeed = newSeed.toString();
     newSeed = newSeed.replace(/[^0-9]+/g,'');
     newSeed = newSeed.substring(0, 9)
-    console.log('newSeed: ',newSeed);
+    //console.log('newSeed: ',newSeed);
     return newSeed
 }
 
@@ -58,13 +58,24 @@ const validator = (cpf) => {
     }
 }
 
-const generator = () => {
-    //semente = '013995010'
-    //semente = '173561990'
+const generator = (qtd) => {
+    /**
+     * @TODO implementar loop
+     */
+    /*
+    results = [];
+    for(i=0;i<qtd;i++){
+        semente = generateSeed()
+        cpfresult = calculaDV(semente)
+        results.push({CPF:i})
+    }
+    console.log(results)
+    return results
+    */
     semente = generateSeed()
     cpfresult = calculaDV(semente)
     console.log('CPF: ',semente+cpfresult)
-    return semente+cpfresult
+    return semente+cpfresult;
 }
 
 module.exports = {

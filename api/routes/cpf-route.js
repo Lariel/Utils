@@ -5,7 +5,14 @@ cpf_module = require('../../services/cpf-service')
 
 router.get('/generate',(req,res,next)=>{
     res.status(200).json({
-        CPF: cpf_module.generator()
+        CPF: cpf_module.generator(1)
+    });
+});
+
+router.get('/generate/:qtd',(req,res,next)=>{
+    const qtd = req.params.qtd;
+    res.status(200).json({
+        CPF: cpf_module.generator(qtd)
     });
 });
 
