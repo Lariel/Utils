@@ -11,9 +11,15 @@ router.get('/generate',(req,res,next)=>{
 
 router.get('/generate/:qtd',(req,res,next)=>{
     const qtd = req.params.qtd;
-    res.status(200).json({
-        CPF: cpf_module.generator(qtd)
-    });
+    qtd > 0 ? (
+        res.status(200).json({
+            CPFs: cpf_module.generator(qtd)
+        })
+    ):(
+        res.status(406).json({
+            Mensagem: 'Informe uma quantidade maior que 0'
+        })
+    )
 });
 
 router.get('/validate/:cpf',(req,res,next)=>{

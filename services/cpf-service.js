@@ -21,9 +21,9 @@ generateSeed = () => {
     //console.log('Math.random: ',Math.random());
     //console.log('Date.now: ',Date.now());
     newSeed = Math.random() * Date.now();
-    newSeed = newSeed.toString();
-    newSeed = newSeed.replace(/[^0-9]+/g,'');
-    newSeed = newSeed.substring(0, 9)
+    newSeed = newSeed.toString().replace(/[^0-9]+/g,'').substring(0, 9);
+    //newSeed = newSeed.replace(/[^0-9]+/g,'');
+    //newSeed = newSeed.substring(0, 9)
     //console.log('newSeed: ',newSeed);
     return newSeed
 }
@@ -62,20 +62,20 @@ const generator = (qtd) => {
     /**
      * @TODO implementar loop
      */
-    /*
+    
     results = [];
-    for(i=0;i<qtd;i++){
+    for(var i=0;i<qtd;i++){
         semente = generateSeed()
-        cpfresult = calculaDV(semente)
-        results.push({CPF:i})
+        results.push({'CPF':semente+calculaDV(semente)})
     }
     console.log(results)
     return results
-    */
+    /*
     semente = generateSeed()
     cpfresult = calculaDV(semente)
     console.log('CPF: ',semente+cpfresult)
     return semente+cpfresult;
+    */
 }
 
 module.exports = {
