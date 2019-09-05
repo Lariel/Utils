@@ -7,7 +7,11 @@
 ### GET:
 #### /cpf/generate
 ```
-Gera um CPF válido com base em um número de 9 dígitos, que é o produto de um número aleatório pela data/horário atual.
+Gera um CPF válido.
+```
+#### /cpf/generate/:x
+```
+Gera X CPFs válidos com base na quantidade passada por parâmetro.
 ```
 #### /cpf/validate/:cpf
 ```
