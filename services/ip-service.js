@@ -1,7 +1,6 @@
 const ipExtractor = (req) => {
     console.log('request: ',req)
-    
-    return 'request: ',JSON.stringify(req, getCircularReplacer())
+    return 'request: ',JSON.parse(JSON.stringify(req, getCircularReplacer()))
 }
 
 //from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cyclic_object_value#Examples
