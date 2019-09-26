@@ -1,6 +1,10 @@
 const ipExtractor = (req) => {
-    console.log('request: ',req)
-    return 'request: ',JSON.parse(JSON.stringify(req, getCircularReplacer()))
+  const reqObj = JSON.parse(JSON.stringify(req, getCircularReplacer()))
+    return reqObj.headers['x-forwarded-for'] ? (
+      reqObj.headers['x-forwarded-for']
+    ):(
+      '127.0.0.1'
+    )
 }
 
 //from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cyclic_object_value#Examples
