@@ -6,18 +6,18 @@
 ## Métodos disponíveis:
 ### GET:
 #### /cpf/generate
-```
+
 Gera um CPF válido.
-```
+
 #### /cpf/generate/:x
-```
+
 Gera X CPFs válidos com base na quantidade passada por parâmetro.
-```
+
 #### /cpf/validate/:cpf
-```
+
 Retorna o status (boolean) da validação do DV de um CPF passado por parâmetro.
-```
+
 #### /ip
-```
+
 Retorna o endereço IP público com base no header [X-Forwarded-For](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For).
-```
+
