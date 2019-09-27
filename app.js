@@ -3,7 +3,8 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cpfRoutes = require('./api/routes/cpf-route');
-const ipRoutes = require('./api/routes/ip-route')
+const ipRoutes = require('./api/routes/ip-route');
+const jwtRoutes = require('./api/routes/jwt-route');
 
 app.use(morgan('dev')); //enables live reload
 app.use(bodyParser.text());
@@ -30,6 +31,7 @@ app.use((req,res,next)=>{
 
 app.use('/cpf', cpfRoutes);
 app.use('/ip', ipRoutes);
+app.use('/jwt',jwtRoutes);
 
 app.use((req,res,next)=>{
     const error = new Error('Recurso não encontrado');
