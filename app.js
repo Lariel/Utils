@@ -6,6 +6,9 @@ const cpfRoutes = require('./api/routes/cpf-route');
 const ipRoutes = require('./api/routes/ip-route');
 const jwtRoutes = require('./api/routes/jwt-route');
 
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
+
 app.use(morgan('dev')); //enables live reload
 app.use(bodyParser.text());
 app.use(bodyParser.json()); //extract json data from request body
@@ -29,9 +32,28 @@ app.use((req,res,next)=>{
     next();
 });
 
+// Swagger
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: 'Utils',
+            description: 'Utilidades para desenvolvedores e analistas de teste',
+            contact: {
+                name: 'Lariel'
+            },
+            servers: ['http://localhost:3000', 'https://api-utilities.herokuapp.com/']
+        }
+    },
+    apis: ['./api/routes/*.js']
+};
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+
 app.use('/cpf', cpfRoutes);
 app.use('/ip', ipRoutes);
 app.use('/jwt',jwtRoutes);
+
+app.use('', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 app.use((req,res,next)=>{
     const error = new Error('Recurso não encontrado');
