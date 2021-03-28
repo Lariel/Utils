@@ -35,11 +35,17 @@ app.use((req,res,next)=>{
 // Swagger
 const swaggerOptions = {
     swaggerDefinition: {
+        host: 'https://api-utilities.herokuapp.com/',
+        openapi: '3.0.0',
+        security: [],
         info: {
             title: 'Utils',
             description: 'Utilidades para desenvolvedores e analistas de teste',
+            version: 'ALFA',
             contact: {
-                name: 'Lariel'
+                name: 'Lariel',
+                email: 'lariel.negreiros@gmail.com',
+                url: 'https://lariel.github.io/',
             },
             servers: ['http://localhost:3000', 'https://api-utilities.herokuapp.com/']
         }

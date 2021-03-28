@@ -7,7 +7,10 @@ cpf_module = require('../../services/cpf-service')
  * @swagger
  * /cpf/generate:
  *  get:
- *      description: Gera um CPF válido
+ *      summary: Gera 1 CPF válido. 
+ *      description: Gerar um CPF válido
+ *      tags:
+ *       - CPF
  *      responses:
  *          '200':
  *              description: CPF gerado com sucesso
@@ -25,6 +28,8 @@ router.get('/generate',(req,res,next)=>{
  *  get:
  *      summary: Gera N CPFs válidos. 
  *      description: Gera N CPFs válidos, de acordo com a quantidade informada na URL.
+ *      tags:
+ *       - CPF
  *      parameters:
  *       - in: path
  *         name: quantidade
@@ -57,6 +62,8 @@ router.get('/generate/:qtd',(req,res,next)=>{
  *  get:
  *      summary: Validação de CPF. 
  *      description: Validação do CPF informado na URL.
+ *      tags:
+ *       - CPF
  *      parameters:
  *       - in: path
  *         name: cpfValidacao

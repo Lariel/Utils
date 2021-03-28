@@ -8,10 +8,12 @@ ip_module = require('../../services/ip-service')
  * /ip:
  *  get:
  *      description: Retorna o endereço IP público com base no header X-Forwarded-For.
+ *      summary: Obter o IP público
+ *      tags:
+ *       - IP
  *      responses:
  *          '200':
  *              description: 
- * 
  */
 router.get('/',(req,res,next)=>{
     res.status(200).json({
